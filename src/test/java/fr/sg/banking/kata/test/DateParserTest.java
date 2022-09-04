@@ -31,7 +31,7 @@ public class DateParserTest {
     }
     @Test(expected =ParseException.class )
     public void shouldThrowParseException() throws ParseException {
-        Date date=this.dateParser.getDateFromString("test date");
+        this.dateParser.getDateFromString("test date");
     }
 
     @Test
