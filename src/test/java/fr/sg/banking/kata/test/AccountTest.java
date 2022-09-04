@@ -27,4 +27,12 @@ public class AccountTest {
         account.deposit(100.00, "04/09/2022");
         assertTrue(100.0== account.getBalance());
     }
+
+
+    @Test
+    public void shouldSaveTransactionWhenWithdrawAmount() throws ParseException {
+        account.setBalance(1000.00);
+        account.withdraw(100.00, "04/09/2022");
+        assertTrue(900.0== account.getBalance());
+    }
 }

@@ -26,6 +26,10 @@ public class Account {
 		return balance;
 	}
 
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public Set<Transaction> getTransactions() {
 		return transactions;
 	}
@@ -38,5 +42,10 @@ public class Account {
 		this.balance=transactionType.equals(TransactionType.DEPOSIT)?this.balance+amount:this.balance-amount;
 		Transaction transaction = new Transaction(transactionType,amount,date,this.balance);
 		this.transactions.add(transaction);
+	}
+
+	public void withdraw(double amount, String date) throws ParseException {
+		this.addTransaction(TransactionType.WITHDRAWAL,amount,this.dateParser.getDateFromString(date));
+
 	}
 }
