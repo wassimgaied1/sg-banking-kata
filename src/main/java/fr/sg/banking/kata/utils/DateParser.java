@@ -10,7 +10,7 @@ public class DateParser {
     private SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
 
     public Date getDateFromString(String d) throws ParseException {
-            return sdf.parse(d);
+        return sdf.parse(d);
     }
 
     public String getStringFromDate(Date d) {

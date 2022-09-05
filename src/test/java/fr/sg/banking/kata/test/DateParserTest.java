@@ -17,28 +17,29 @@ public class DateParserTest {
     private DateParser dateParser;
 
     @Before
-    public void setUp(){
-        dateParser=new DateParser();
+    public void setUp() {
+        dateParser = new DateParser();
     }
 
 
     @Test
     public void shouldReturnDateFromString() throws ParseException {
-     Date date=this.dateParser.getDateFromString("04/09/2022");
-     assertEquals(date.toInstant()
-             .atZone(ZoneId.systemDefault())
-             .toLocalDate(), LocalDate.of(2022,9,4));
+        Date date = this.dateParser.getDateFromString("04/09/2022");
+        assertEquals(date.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate(), LocalDate.of(2022, 9, 4));
     }
-    @Test(expected =ParseException.class )
+
+    @Test(expected = ParseException.class)
     public void shouldThrowParseException() throws ParseException {
         this.dateParser.getDateFromString("test date");
     }
 
     @Test
-    public void shouldReturnStringFromDate()  {
-        Date date = Date.from(LocalDate.of(2022,9,4).atStartOfDay(ZoneId.systemDefault()).toInstant());
+    public void shouldReturnStringFromDate() {
+        Date date = Date.from(LocalDate.of(2022, 9, 4).atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        String d=this.dateParser.getStringFromDate(date);
+        String d = this.dateParser.getStringFromDate(date);
         assertEquals(d, "04/09/2022");
     }
 
